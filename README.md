@@ -53,5 +53,8 @@ Async: async/await для всех операций с БД
 ### 🐛 Тестирование
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 pytest -v
 ```

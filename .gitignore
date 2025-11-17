@@ -9,3 +9,6 @@ venv/
 # Кэш
 __pycache__
 *mypy_cache
+
+# Логи
+*.log
