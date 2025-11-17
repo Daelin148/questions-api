@@ -14,10 +14,9 @@ project_root = os.path.dirname(
 sys.path.insert(0, project_root)
 
 
-from app.core.db import DATABASE_URL, Base # noqa
-from app.models.answer import Answer # noqa
-from app.models.question import Question # noqa
-
+from app.core.db import DATABASE_URL, Base  # noqa
+from app.models.answer import Answer  # noqa
+from app.models.question import Question  # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

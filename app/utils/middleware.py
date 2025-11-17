@@ -4,7 +4,6 @@ from logging.handlers import RotatingFileHandler
 
 from fastapi import FastAPI, Request
 
-
 logger = logging.getLogger(__name__)
 
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

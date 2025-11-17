@@ -1,11 +1,13 @@
+import asyncio
 import os
 import sys
+
 import pytest
-import asyncio
-from fastapi import FastAPI, Depends
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
-from sqlalchemy.pool import StaticPool
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
+from sqlalchemy.ext.asyncio import (AsyncSession, async_sessionmaker,
+                                    create_async_engine)
+from sqlalchemy.pool import StaticPool
 
 app_dir = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'app'
@@ -14,9 +16,9 @@ sys.path.insert(0, app_dir)
 
 
 from app import models
+from app.api.v1.dependencies import get_uow
 from app.core.db import Base
 from app.crud import AnswerRepository, QuestionRepository
-from app.api.v1.dependencies import get_uow
 
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
 

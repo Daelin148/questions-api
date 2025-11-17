@@ -2,7 +2,6 @@ from fastapi import APIRouter
 
 from app.api.v1.routers import answer, question
 
-
 api_router = APIRouter()
 
 api_router.include_router(

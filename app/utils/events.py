@@ -1,9 +1,7 @@
 import subprocess
-from contextlib import asynccontextmanager
-
-from pathlib import Path
-
 import sys
+from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 

@@ -6,7 +6,6 @@ from app.core.config import settings
 from app.utils.events import apply_migrations
 from app.utils.middleware import register_middleware
 
-
 app = FastAPI(
     title=settings.app_name,
     lifespan=apply_migrations

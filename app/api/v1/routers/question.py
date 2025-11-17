@@ -3,7 +3,8 @@ from typing import Annotated
 from fastapi import APIRouter, Path, status
 
 from app.api.v1.dependencies import QuestionDep, UOWDep
-from app.schemas import AnswerCreate, QuestionBase, QuestionCreate, QuestionDetail
+from app.schemas import (AnswerCreate, QuestionBase, QuestionCreate,
+                         QuestionDetail)
 from app.services import AnswerService, QuestionService
 
 router = APIRouter()
