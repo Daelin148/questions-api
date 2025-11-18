@@ -2,7 +2,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Path, status
 
-from app.api.v1.dependencies import QuestionDep, UOWDep
+from app.api.v1.dependencies import QuestionDep, UOWDep, QuestionId
 from app.schemas import (AnswerCreate, QuestionBase, QuestionCreate,
                          QuestionDetail)
 from app.services import AnswerService, QuestionService
@@ -33,7 +33,7 @@ async def create_question(
 
 @router.delete('/{id}', status_code=status.HTTP_204_NO_CONTENT)
 async def delete_question(
-    id: Annotated[int, Path(..., gt=0, description='Идентификатор вопроса')],
+    id: QuestionId,
     uow: UOWDep
 ):
     """Удаление вопроса."""
@@ -46,7 +46,7 @@ async def delete_question(
 async def create_answer(
     question_db: QuestionDep,
     answer_data: AnswerCreate,
-    id: Annotated[int, Path(..., gt=0, description='Идентификатор вопроса')],
+    id: QuestionId,
     uow: UOWDep,
 ):
     """Создание ответа к вопросу."""
@@ -56,7 +56,7 @@ async def create_answer(
 
 @router.get('/{id}', response_model=QuestionDetail)
 async def get_question(
-    id: Annotated[int, Path(..., gt=0, description='Идентификатор вопроса')],
+    id: QuestionId,
     uow: UOWDep,
     question_db: QuestionDep
 ) -> QuestionDetail:

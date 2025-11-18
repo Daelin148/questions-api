@@ -44,3 +44,7 @@ async def valid_answer_id(
 QuestionDep = Annotated[int, Depends(valid_question_id)]
 
 AnswerDep = Annotated[int, Depends(valid_answer_id)]
+
+QuestionId = Annotated[int, Path(..., gt=0, description='Идентификатор вопроса')]
+
+AnswerId = Annotated[int, Path(..., gt=0, description='Идентификатор ответа')]
